@@ -3,7 +3,7 @@
 //用指针-指针的方式
 int my_strlen(const char *str)
 {
-  char *p = (char *)str;
+  const char *p = str;
   while(*p != '\0')
     p++;
   return p-str;
