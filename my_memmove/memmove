@@ -1,0 +1,28 @@
+void *my_memmove(void *dest, void *src, size_t count)
+{
+  assert(dest != NULL);
+  assert(src != NULL);
+
+  void *ret = dest;
+  if(dest > src && ( (char *)src + count > dest) )
+  {
+    dest = (char *)dest + count -1;
+    src = (char *)src + count - 1;
+    while(count--)
+    {
+      *(char *)dest = *(char *)src;
+      dest = (char *)dest - 1;
+      src = (char *)src - 1;
+    }
+  }
+  else
+  {
+    while(count--)
+    {
+      *(char *)dest = *(char)src;
+      dest = (char *)dest + 1;
+      src = (char *)src + 1;
+    }
+  }
+  return ret;
+}
