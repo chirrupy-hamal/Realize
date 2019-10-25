@@ -1,0 +1,29 @@
+char *my_strstr(const char *str1, const char *str2)
+{
+  assert(str1 != NULL);
+  assert(str2 != NULL);
+
+  //const char *cp = str1;
+  const char *substr = str2;
+  const char *s1 = NULL;
+
+  if(*str2 == '\0')
+    return NULL;
+  //while(*cp)
+  while(*str1)
+  {
+    //s1 = cp;
+    s1 = str1;
+    substr = str2;
+    while(*s1 && *substr && (*s1 == *substr))
+    {
+      s1++;
+      substr++;
+    }
+    if(*substr == '\0')
+      return cp;
+    //cp++;
+    str1++;
+  }
+  return NULL;
+}
